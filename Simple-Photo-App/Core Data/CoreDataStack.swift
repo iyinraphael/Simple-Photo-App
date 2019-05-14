@@ -14,7 +14,7 @@ class CoreDataStack{
     
     
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Simple_Photo_App")
+        let container = NSPersistentContainer(name: "Simple_Photo_App" as String)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error{
                 print("there was an \(error)")
