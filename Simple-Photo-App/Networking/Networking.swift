@@ -25,7 +25,21 @@ extension PhotoController {
             do {
                 let jsonDecoder = JSONDecoder()
                 let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data).map({$0})
-                print(photosRep[0])
+                let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+                backgroundContext.performAndWait {
+                    for photoR in photosRep {
+                        
+                        _ = Photo(photoRepresenation: photoR, context: backgroundContext)
+                        
+                        let photo = self.fetchSinglePhotoFromPersistenceStore(id:photoR.id , context: backgroundContext)
+                        
+                        if let photo = photo  {
+                            self.photos.append(photo)
+                        }
+                    self.saveToPersisitentStore(context: backgroundContext)
+                        
+                    }
+                }
                 completion(photosRep, nil)
             } catch {
                 NSLog("Error decoding JSON data: \(error)")

@@ -14,7 +14,7 @@ struct PhotoRepresentation: Decodable {
     var title: String?
     var url: String?
     var thumbnailUrl: String?
-    var id: Int64?
+    var id: Int64
     
     static func == (lhs: PhotoRepresentation, rhs: Photo) -> Bool {
         return rhs.title == lhs.title &&

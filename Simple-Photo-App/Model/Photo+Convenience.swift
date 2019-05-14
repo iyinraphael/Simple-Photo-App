@@ -23,8 +23,8 @@ extension Photo {
         
         guard let title = photoRepresenation.title,
             let photoURL = photoRepresenation.url,
-            let thumbnailURL = photoRepresenation.thumbnailUrl,
-            let id = photoRepresenation.id else {return nil}
+            let thumbnailURL = photoRepresenation.thumbnailUrl else {return nil}
+            let id = photoRepresenation.id
         
         self.init(title:title, photoURL:photoURL, thumbnailURL: thumbnailURL, id:id, context:context)
     }
