@@ -10,11 +10,11 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
-    let reuseIdentifier = "photoCell"
+    let reuseIdentifier = "ThumbnailPhotoCollectionViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         let photCell = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionVIew.register(photCell, forCellWithReuseIdentifier: reuseIdentifier)
     }
@@ -33,4 +33,18 @@ class PhotoViewController: UIViewController {
     }
     */
 
+}
+
+
+extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ThumbnailPhotoCollectionViewCell else {return UICollectionViewCell()}
+        return cell
+    }
+    
+    
 }

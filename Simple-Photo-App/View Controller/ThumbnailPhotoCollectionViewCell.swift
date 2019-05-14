@@ -12,8 +12,6 @@ class ThumbnailPhotoCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
       
     }
 

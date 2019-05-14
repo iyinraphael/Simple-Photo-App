@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EB82439E228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82439C228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.swift */; };
-		EB82439F228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB82439D228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.xib */; };
 		EB8243A1228B0A7B00B03013 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243A0228B0A7B00B03013 /* PhotoViewController.swift */; };
+		EB8243A2228B2AA300B03013 /* ThumbnailPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB82439D228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.xib */; };
 		EBF3E400228A9F4D00BEC2EC /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3E3FF228A9F4D00BEC2EC /* PhotoDetailViewController.swift */; };
 		EBFE949A228A2C6600C5E97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE9499228A2C6600C5E97C /* AppDelegate.swift */; };
 		EBFE949F228A2C6600C5E97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE949D228A2C6600C5E97C /* Main.storyboard */; };
@@ -262,7 +262,7 @@
 			files = (
 				EBFE94A7228A2C6E00C5E97C /* LaunchScreen.storyboard in Resources */,
 				EBFE94A4228A2C6E00C5E97C /* Assets.xcassets in Resources */,
-				EB82439F228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.xib in Resources */,
+				EB8243A2228B2AA300B03013 /* ThumbnailPhotoCollectionViewCell.xib in Resources */,
 				EBFE949F228A2C6600C5E97C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
