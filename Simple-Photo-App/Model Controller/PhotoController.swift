@@ -12,7 +12,7 @@ import CoreData
 class PhotoController {
     
     var photos = Array<Photo>()
-    typealias completionHandler = ([Photo]?,Error?) -> Void
+    typealias completionHandler = ([PhotoRepresentation]?,Error?) -> Void
     
     
 }

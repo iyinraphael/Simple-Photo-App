@@ -8,7 +8,7 @@
 
 import Foundation
 
-let baseURL = URL(string: "http://jsonplaceholder.typicode.com/photos")!
+let baseURL = URL(string: "https://jsonplaceholder.typicode.com/photos")!
 extension PhotoController {
     
     func fetchPhoto(completion: @escaping completionHandler = {_, _ in }) {
@@ -22,16 +22,19 @@ extension PhotoController {
                 completion(nil, error)
                 return
             }
-            
             do {
                 let jsonDecoder = JSONDecoder()
-        
-                
+                let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data).map({$0})
+                print(photosRep[0])
+                completion(photosRep, nil)
             } catch {
-                
+                NSLog("Error decoding JSON data: \(error)")
+                completion(nil, error)
+                return
             }
-        }
+        }.resume()
         
     }
     
 }
+

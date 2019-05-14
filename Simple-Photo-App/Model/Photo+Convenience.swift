@@ -10,7 +10,7 @@ import CoreData
 
 extension Photo {
     
-    convenience init(title:String, photoURL:URL, thumbnailURL:URL, id:Int64, context:NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(title:String, photoURL:String, thumbnailURL:String, id:Int64, context:NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         
         self.title = title
@@ -18,8 +18,14 @@ extension Photo {
         self.thumbnailURL = thumbnailURL
         self.id = id
     }
-
     
-    
-    
+    convenience init?(photoRepresenation: PhotoRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        
+        guard let title = photoRepresenation.title,
+            let photoURL = photoRepresenation.url,
+            let thumbnailURL = photoRepresenation.thumbnailUrl,
+            let id = photoRepresenation.id else {return nil}
+        
+        self.init(title:title, photoURL:photoURL, thumbnailURL: thumbnailURL, id:id, context:context)
+    }
 }

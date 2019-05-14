@@ -12,14 +12,14 @@ import Foundation
 struct PhotoRepresentation: Decodable {
     
     var title: String?
-    var photoURL: URL?
-    var thumbnailURL: URL?
+    var url: String?
+    var thumbnailUrl: String?
     var id: Int64?
     
     static func == (lhs: PhotoRepresentation, rhs: Photo) -> Bool {
         return rhs.title == lhs.title &&
-        rhs.photoURL == lhs.photoURL &&
-        rhs.thumbnailURL == lhs.thumbnailURL &&
+        rhs.photoURL == lhs.url &&
+        rhs.thumbnailURL == lhs.thumbnailUrl &&
         rhs.id == lhs.id
     }
     
@@ -35,3 +35,4 @@ struct PhotoRepresentation: Decodable {
         return rhs != lhs
     }
 }
+
