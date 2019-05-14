@@ -13,6 +13,8 @@
 		EBFE94A4228A2C6E00C5E97C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE94A3228A2C6E00C5E97C /* Assets.xcassets */; };
 		EBFE94A7228A2C6E00C5E97C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE94A5228A2C6E00C5E97C /* LaunchScreen.storyboard */; };
 		EBFE94B2228A2C6E00C5E97C /* Simple_Photo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE94B1228A2C6E00C5E97C /* Simple_Photo_AppTests.swift */; };
+		EBFE94C5228A605800C5E97C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE94C4228A605800C5E97C /* CoreDataStack.swift */; };
+		EBFE94C7228A613F00C5E97C /* Photo+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE94C6228A613F00C5E97C /* Photo+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		EBFE94AD228A2C6E00C5E97C /* Simple-Photo-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple-Photo-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE94B1228A2C6E00C5E97C /* Simple_Photo_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Photo_AppTests.swift; sourceTree = "<group>"; };
 		EBFE94B3228A2C6E00C5E97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBFE94C4228A605800C5E97C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EBFE94C6228A613F00C5E97C /* Photo+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				EBFE94A0228A2C6600C5E97C /* Simple_Photo_App.xcdatamodeld */,
+				EBFE94C4228A605800C5E97C /* CoreDataStack.swift */,
+				EBFE94C6228A613F00C5E97C /* Photo+Convenience.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -237,6 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFE94C7228A613F00C5E97C /* Photo+Convenience.swift in Sources */,
+				EBFE94C5228A605800C5E97C /* CoreDataStack.swift in Sources */,
 				EBFE949A228A2C6600C5E97C /* AppDelegate.swift in Sources */,
 				EBFE94A2228A2C6600C5E97C /* Simple_Photo_App.xcdatamodeld in Sources */,
 			);
