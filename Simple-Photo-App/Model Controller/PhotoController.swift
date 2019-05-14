@@ -13,27 +13,22 @@ import CoreData
 
 class PhotoController {
     
-    var photos = Array<Photo>()
-    typealias completionHandler = ([PhotoRepresentation]?,Error?) -> Void
-    
-    func fetchSinglePhotoFromPersistenceStore(id: Int64, context: NSManagedObjectContext) -> Photo? {
-        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as Int64)
-        var photo: Photo?
-        
-        context.performAndWait {
-            do {
-                photo = try context.fetch(fetchRequest).first
-            } catch {
-                NSLog("Error fetching from persistent store: \(error)")
-            }
-        }
-        return photo
+    init() {
+        self.fetchPhoto()
     }
     
-    func saveToPersisitentStore(context: NSManagedObjectContext = moc ){
+    var photos = Array<Photo>()
+    typealias completionHandler = ([Photo]?,Error?) -> Void
+    
+    func savePhoto(title: String, photoUrl: String, thumbnailUrl: String, id: Int64, context: NSManagedObjectContext = moc) {
+        let photo = Photo(title: title, photoURL: photoUrl, thumbnailURL: thumbnailUrl, id: id)
+        photos.append(photo)
+        saveToPersisitentStore()
+    }
+    
+    func saveToPersisitentStore(){
         do{
-            try context.save()
+            try moc.save()
         }catch{
             NSLog("Error trying to save: \(error)")
             moc.reset()

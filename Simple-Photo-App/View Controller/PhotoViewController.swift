@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class PhotoViewController: UIViewController {
 
     let reuseIdentifier = "ThumbnailPhotoCollectionViewCell"
+    let photoController = PhotoController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,12 @@ class PhotoViewController: UIViewController {
     
 // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       
     }
 
 }
 
-//MARK: - UICollectionDelagate and DataSource
+// MARK: - UICollection Delagate and Data Source
 extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -41,6 +42,12 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ThumbnailPhotoCollectionViewCell else {return UICollectionViewCell()}
         return cell
     }
+}
+
+
+// MARk: - NSFetchControllerDelegate
+extension PhotoController: NSFetchedResultsControllerDelegate {
+    
     
     
 }

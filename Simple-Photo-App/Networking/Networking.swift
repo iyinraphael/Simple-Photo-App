@@ -8,9 +8,11 @@
 
 import Foundation
 
+
+//MARK: - Network call with URLSession
 let baseURL = URL(string: "https://jsonplaceholder.typicode.com/photos")!
 extension PhotoController {
-    
+
     func fetchPhoto(completion: @escaping completionHandler = {_, _ in }) {
         
         URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
@@ -25,20 +27,8 @@ extension PhotoController {
             do {
                 let jsonDecoder = JSONDecoder()
                 let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data).map({$0})
-                let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-                backgroundContext.performAndWait {
-                    for photoR in photosRep {
-                        
-                        _ = Photo(photoRepresenation: photoR, context: backgroundContext)
-                        
-                        let photo = self.fetchSinglePhotoFromPersistenceStore(id:photoR.id , context: backgroundContext)
-                        
-                        if let photo = photo  {
-                            self.photos.append(photo)
-                        }
-                    self.saveToPersisitentStore(context: backgroundContext)
-                        
-                    }
+                for photoR in photosRep {
+                    let photo
                 }
                 completion(photosRep, nil)
             } catch {
