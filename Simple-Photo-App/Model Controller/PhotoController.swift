@@ -14,5 +14,12 @@ class PhotoController {
     var photos = Array<Photo>()
     typealias completionHandler = ([PhotoRepresentation]?,Error?) -> Void
     
+    func saveToPersistenceStore() {
+        do {
+            try CoreDataStack.shared.mainContext.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
     
 }
