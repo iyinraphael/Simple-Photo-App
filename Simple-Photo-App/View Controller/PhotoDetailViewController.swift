@@ -56,6 +56,7 @@ class PhotoDetailViewController: UIViewController {
         let titleLabel = UILabel(frame: CGRect(x: 60, y: 600, width: 300, height: 50))
         guard let title = photo?.title else {return}
         titleLabel.text = title
+        titleLabel.textColor = color
         titleLabel.font = .boldSystemFont(ofSize: 15)
         
         
@@ -68,7 +69,7 @@ class PhotoDetailViewController: UIViewController {
         guard let hex = splitString?.removeLast() else {return}
         let hexColor = "#\(hex)"
         let color = UIColor(hexString: hexColor)
-        
+        self.color = color
         doneBarButtton.tintColor = .black
         navBar.backgroundColor = color
         
