@@ -37,7 +37,7 @@ class PhotoDetailViewController: UIViewController {
     
     
     
-    //MARK :- Creating custom imageView contrainst
+    //MARK: - Creating custom imageView contrainst
     private func createCustomImageView() {
         view.translatesAutoresizingMaskIntoConstraints = false
         let imageView = UIImageView(frame: CGRect(x: 50, y: 300, width: 300, height: 300))
