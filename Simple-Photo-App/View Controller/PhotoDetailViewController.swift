@@ -27,7 +27,7 @@ class PhotoDetailViewController: UIViewController {
         setBarColor()
         setUpAppearance()
         createCustomImageView()
-        createLabel()
+        createTextView()
     }
     
     //MARK: - CoreData for further Implementation to save Photos to album
@@ -52,15 +52,18 @@ class PhotoDetailViewController: UIViewController {
         view.addSubview(imageView)
     }
     
-    private func createLabel() {
-        let titleLabel = UILabel(frame: CGRect(x: 60, y: 600, width: 300, height: 50))
+    private func createTextView() {
+        
+        let textView = UITextView(frame: CGRect(x: 60, y: 620, width: 300, height: 60))
+        
         guard let title = photo?.title else {return}
-        titleLabel.text = title
-        titleLabel.textColor = color
-        titleLabel.font = .boldSystemFont(ofSize: 15)
+        textView.text = title
+        textView.textColor = color
+        textView.backgroundColor = .clear
+        textView.textAlignment = .center
+        textView.font = .boldSystemFont(ofSize: 20)
         
-        
-        view.addSubview(titleLabel)
+        view.addSubview(textView)
     }
 
     private func setBarColor() {
