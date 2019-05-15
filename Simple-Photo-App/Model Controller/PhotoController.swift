@@ -13,9 +13,7 @@ import CoreData
 
 class PhotoController {
     
-//    init() {
-//        fetchPhoto()
-//    }
+
     
     var photos =  Array<PhotoRepresentation>()
     var savePhotos = Array<Photo>()

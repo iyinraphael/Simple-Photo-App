@@ -12,7 +12,6 @@ extension Photo {
     
     convenience init(title:String, photoURL:String, thumbnailURL:String, id:Int64, context:NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
-        
         self.title = title
         self.photoURL = photoURL
         self.thumbnailURL = thumbnailURL

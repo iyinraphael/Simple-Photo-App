@@ -15,6 +15,7 @@
 		EB8243B0228BDA2E00B03013 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243AF228BDA2E00B03013 /* Cache.swift */; };
 		EB8243B2228C169400B03013 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243B1228C169400B03013 /* Appearance.swift */; };
 		EB8243B4228C6A4B00B03013 /* TestJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243B3228C6A4B00B03013 /* TestJSON.swift */; };
+		EB8243B6228C6C1F00B03013 /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243B5228C6C1F00B03013 /* MockDataLoader.swift */; };
 		EBF3E400228A9F4D00BEC2EC /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3E3FF228A9F4D00BEC2EC /* PhotoDetailViewController.swift */; };
 		EBFE949A228A2C6600C5E97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE9499228A2C6600C5E97C /* AppDelegate.swift */; };
 		EBFE949F228A2C6600C5E97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE949D228A2C6600C5E97C /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		EB8243AF228BDA2E00B03013 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		EB8243B1228C169400B03013 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		EB8243B3228C6A4B00B03013 /* TestJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSON.swift; sourceTree = "<group>"; };
+		EB8243B5228C6C1F00B03013 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		EBF3E3FF228A9F4D00BEC2EC /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		EBFE9496228A2C6600C5E97C /* Simple-Photo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple-Photo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE9499228A2C6600C5E97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				EBFE94B1228A2C6E00C5E97C /* Simple_Photo_AppTests.swift */,
 				EBFE94B3228A2C6E00C5E97C /* Info.plist */,
 				EB8243B3228C6A4B00B03013 /* TestJSON.swift */,
+				EB8243B5228C6C1F00B03013 /* MockDataLoader.swift */,
 			);
 			path = "Simple-Photo-AppTests";
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			files = (
 				EBFE94B2228A2C6E00C5E97C /* Simple_Photo_AppTests.swift in Sources */,
 				EB8243B4228C6A4B00B03013 /* TestJSON.swift in Sources */,
+				EB8243B6228C6C1F00B03013 /* MockDataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
