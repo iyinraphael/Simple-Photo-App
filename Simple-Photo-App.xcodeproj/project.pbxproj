@@ -13,6 +13,8 @@
 		EB8243A4228B91E300B03013 /* PhotoTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243A3228B91E300B03013 /* PhotoTabController.swift */; };
 		EB8243A6228B926100B03013 /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243A5228B926100B03013 /* PhotoTableViewController.swift */; };
 		EB8243A8228B929100B03013 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243A7228B929100B03013 /* PhotoTableViewCell.swift */; };
+		EB8243AC228BCD5400B03013 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243AB228BCD5400B03013 /* ConcurrentOperation.swift */; };
+		EB8243AE228BCECC00B03013 /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8243AD228BCECC00B03013 /* FetchPhotoOperation.swift */; };
 		EBF3E400228A9F4D00BEC2EC /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3E3FF228A9F4D00BEC2EC /* PhotoDetailViewController.swift */; };
 		EBFE949A228A2C6600C5E97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE9499228A2C6600C5E97C /* AppDelegate.swift */; };
 		EBFE949F228A2C6600C5E97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE949D228A2C6600C5E97C /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		EB8243A3228B91E300B03013 /* PhotoTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTabController.swift; sourceTree = "<group>"; };
 		EB8243A5228B926100B03013 /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		EB8243A7228B929100B03013 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		EB8243AB228BCD5400B03013 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		EB8243AD228BCECC00B03013 /* FetchPhotoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotoOperation.swift; sourceTree = "<group>"; };
 		EBF3E3FF228A9F4D00BEC2EC /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		EBFE9496228A2C6600C5E97C /* Simple-Photo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple-Photo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE9499228A2C6600C5E97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB8243AA228BCBF600B03013 /* Helper File */ = {
+			isa = PBXGroup;
+			children = (
+				EB8243AB228BCD5400B03013 /* ConcurrentOperation.swift */,
+				EB8243AD228BCECC00B03013 /* FetchPhotoOperation.swift */,
+			);
+			path = "Helper File";
+			sourceTree = "<group>";
+		};
 		EBFE948D228A2C6600C5E97C = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 		EBFE9498228A2C6600C5E97C /* Simple-Photo-App */ = {
 			isa = PBXGroup;
 			children = (
+				EB8243AA228BCBF600B03013 /* Helper File */,
 				EBFE94CD228A6AC400C5E97C /* Model Controller */,
 				EBFE94C8228A684A00C5E97C /* Networking */,
 				EBFE94C1228A2EF900C5E97C /* Core Data */,
@@ -298,8 +312,10 @@
 				EBFE949A228A2C6600C5E97C /* AppDelegate.swift in Sources */,
 				EBF3E400228A9F4D00BEC2EC /* PhotoDetailViewController.swift in Sources */,
 				EBFE94CF228A815500C5E97C /* PhotoRepresentation.swift in Sources */,
+				EB8243AE228BCECC00B03013 /* FetchPhotoOperation.swift in Sources */,
 				EB82439E228B092E00B03013 /* ThumbnailPhotoCollectionViewCell.swift in Sources */,
 				EBFE94A2228A2C6600C5E97C /* Simple_Photo_App.xcdatamodeld in Sources */,
+				EB8243AC228BCD5400B03013 /* ConcurrentOperation.swift in Sources */,
 				EB8243A8228B929100B03013 /* PhotoTableViewCell.swift in Sources */,
 				EB8243A6228B926100B03013 /* PhotoTableViewController.swift in Sources */,
 				EB8243A1228B0A7B00B03013 /* PhotoViewController.swift in Sources */,

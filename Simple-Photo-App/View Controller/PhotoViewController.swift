@@ -19,6 +19,7 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
         let photCell = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionVIew.register(photCell, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionVIew.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

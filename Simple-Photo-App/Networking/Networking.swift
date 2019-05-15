@@ -25,7 +25,7 @@ extension PhotoController {
                 return
             }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.sync {
                 do {
                     let jsonDecoder = JSONDecoder()
                     let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data)
@@ -34,7 +34,6 @@ extension PhotoController {
                         if let photo = photo {
                             self.photos.append(photo)
                         }
-                        
                     }
                     print(self.photos[0])
                     completion(self.photos, nil)
