@@ -23,7 +23,18 @@ class PhotoDetailViewController: UIViewController {
         createLabel()
     }
     
-    //Creating custom imageView contrainst
+    
+    @IBAction func SavePhoto(_ sender: Any) {
+        guard let photoUrl = photo?.photoURL, let title = photo?.title,
+            let thumbnailUrl = photo?.thumbnailURL, let photoId = photo?.id else {return}
+        
+        photoController?.savePhoto(title: title, photoUrl: photoUrl, thumbnailUrl: thumbnailUrl, id: photoId, context: moc)
+       self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    //MARK :- Creating custom imageView contrainst
     private func createCustomImageView() {
         view.translatesAutoresizingMaskIntoConstraints = false
         let imageView = UIImageView(frame: CGRect(x: 50, y: 300, width: 300, height: 300))
@@ -39,7 +50,10 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func createLabel() {
-        let titleLabel = UILabel(frame: CGRect(x: 700, y: 700, width: 100, height: 20))
+        let titleLabel = UILabel(frame: CGRect(x: 150, y: 700, width: 100, height: 50))
+        guard let title = photo?.title else {return}
+        titleLabel.text = title
+        titleLabel.font = .boldSystemFont(ofSize: 20)
         view.addSubview(titleLabel)
     }
 

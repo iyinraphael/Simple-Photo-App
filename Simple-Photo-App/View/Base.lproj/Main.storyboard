@@ -140,7 +140,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="5DY-N3-wzd">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Fbi-IK-qHZ"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Fbi-IK-qHZ">
+                                            <connections>
+                                                <action selector="SavePhoto:" destination="ndV-92-6N5" id="B32-0B-9h6"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
