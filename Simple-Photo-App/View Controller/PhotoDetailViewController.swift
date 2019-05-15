@@ -9,6 +9,13 @@
 import UIKit
 
 class PhotoDetailViewController: UIViewController {
+    
+    var photoController: PhotoController?
+    var photo: Photo? {
+        didSet {
+            createCustomImageView()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +32,8 @@ class PhotoDetailViewController: UIViewController {
         imageView.layer.cornerRadius = radius
         imageView.layer.borderWidth = 1.0
         imageView.layer.borderColor = UIColor.black.cgColor
+        guard let imageData = stringToData(str: photo?.photoURL) else {return}
+        imageView.image = UIImage(data: imageData)
         
         view.addSubview(imageView)
     }
@@ -34,5 +43,20 @@ class PhotoDetailViewController: UIViewController {
         view.addSubview(titleLabel)
     }
 
+    
+    
+    
+    private func stringToData(str: String?) -> Data? {
+        var newData:Data?
+        do{
+            if let str = str {
+                guard let url = URL(string: str) else {return nil}
+                let data  = try Data(contentsOf: url)
+                newData = data}
+        } catch {
+            NSLog("\(error)")
+        }
+        return newData
+    }
     
 }

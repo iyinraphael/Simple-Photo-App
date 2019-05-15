@@ -130,7 +130,7 @@
         <!--Title-->
         <scene sceneID="JON-3N-G0l">
             <objects>
-                <viewController id="ndV-92-6N5" customClass="PhotoDetailViewController" customModule="Simple_Photo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoDetailViewController" id="ndV-92-6N5" customClass="PhotoDetailViewController" customModule="Simple_Photo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0II-wr-wza">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

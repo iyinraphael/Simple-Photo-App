@@ -18,11 +18,12 @@ class PhotoController {
     }
     
     var photos = Array<Photo>()
+    var savePhotos = Array<Photo>()
     typealias completionHandler = ([Photo]?,Error?) -> Void
     
     func savePhoto(title: String, photoUrl: String, thumbnailUrl: String, id: Int64, context: NSManagedObjectContext = moc) {
         let photo = Photo(title: title, photoURL: photoUrl, thumbnailURL: thumbnailUrl, id: id)
-        photos.append(photo)
+        savePhotos.append(photo)
         saveToPersisitentStore()
     }
     

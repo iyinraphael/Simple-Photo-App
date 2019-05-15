@@ -70,19 +70,6 @@ class PhotoViewController: UIViewController {
         
         operations[photo.id] = fetchOp
     }
-    
-    private func stringToData(str: String?) -> Data? {
-        var newData:Data?
-        do{
-            if let str = str {
-                guard let url = URL(string: str) else {return nil}
-                let data  = try Data(contentsOf: url)
-                newData = data}
-        } catch {
-            NSLog("\(error)")
-        }
-        return newData
-    }
 
 }
 
@@ -130,6 +117,17 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 10.0, bottom: 0, right: 10.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "photoDetailViewController") as! PhotoDetailViewController
+        let photo = photoController.photos[indexPath.item]
+        detailViewController.photo = photo
+        detailViewController.photoController = photoController
+
+        self.showDetailViewController(detailViewController, sender: nil)
     }
 }
 
