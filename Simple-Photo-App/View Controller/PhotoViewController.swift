@@ -29,9 +29,9 @@ class PhotoViewController: UIViewController {
         photoController.fetchPhoto { (_, _) in
             DispatchQueue.main.sync {
                 self.collectionVIew.reloadData()
-                
             }
         }
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         collectionVIew.refreshControl = refreshControl
@@ -40,6 +40,7 @@ class PhotoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionVIew.reloadData()
         
     }
     

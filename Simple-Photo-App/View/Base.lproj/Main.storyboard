@@ -44,7 +44,7 @@
                         <viewLayoutGuide key="safeArea" id="rEk-rq-Qup"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photos" image="picture" selectedImage="picture" id="cqh-so-xgk"/>
-                    <navigationItem key="navigationItem" id="sjc-2s-RUs"/>
+                    <navigationItem key="navigationItem" title="Photos" id="sjc-2s-RUs"/>
                     <connections>
                         <outlet property="collectionVIew" destination="WAp-Q8-CiG" id="BWC-Kf-dMx"/>
                     </connections>
