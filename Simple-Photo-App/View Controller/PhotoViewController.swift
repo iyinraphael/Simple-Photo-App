@@ -11,6 +11,7 @@ import CoreData
 
 class PhotoViewController: UIViewController {
 
+    //MARk: - Properties
     let reuseIdentifier = "ThumbnailPhotoCollectionViewCell"
     let photoController = PhotoController()
     private let cache = Cache<Int64, UIImage>()
@@ -19,17 +20,39 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAppearance()
         let photCell = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionVIew.register(photCell, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionVIew.reloadData()
+        photoController.fetchPhoto { (_, _) in
+            DispatchQueue.main.sync {
+                self.collectionVIew.reloadData()
+                
+            }
+        }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        collectionVIew.refreshControl = refreshControl
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         collectionVIew.reloadData()
+        
     }
     
+    @IBAction func refresh(_ sender: Any?) {
+        collectionVIew.refreshControl?.beginRefreshing()
+        
+        photoController.fetchPhoto { (_, _) in
+            DispatchQueue.main.sync {
+                self.collectionVIew.reloadData()
+                self.collectionVIew.refreshControl?.endRefreshing()
 
+            }
+        }
+
+    }
+    
     @IBOutlet weak var collectionVIew: UICollectionView!
     
     // MARK: - Navigation
@@ -126,6 +149,7 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let photo = photoController.photos[indexPath.item]
         detailViewController.photo = photo
         detailViewController.photoController = photoController
+
 
         self.showDetailViewController(detailViewController, sender: nil)
     }

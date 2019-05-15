@@ -13,17 +13,22 @@ import CoreData
 
 class PhotoController {
     
-    init() {
-        fetchPhoto()
-    }
+//    init() {
+//        fetchPhoto()
+//    }
     
-    var photos = Array<Photo>()
+    var photos =  Array<PhotoRepresentation>()
     var savePhotos = Array<Photo>()
-    typealias completionHandler = ([Photo]?,Error?) -> Void
+    typealias completionHandler = ([PhotoRepresentation]?,Error?) -> Void
     
     func savePhoto(title: String, photoUrl: String, thumbnailUrl: String, id: Int64, context: NSManagedObjectContext = moc) {
         let photo = Photo(title: title, photoURL: photoUrl, thumbnailURL: thumbnailUrl, id: id)
         savePhotos.append(photo)
+        saveToPersisitentStore()
+    }
+    
+    func deletePhotos(photo: Photo) {
+        moc.delete(photo)
         saveToPersisitentStore()
     }
     

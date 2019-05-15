@@ -11,7 +11,7 @@ import UIKit
 
 class FetchPhotoOperation: ConcurrentOperation {
     
-    init(photo: Photo, session: URLSession = URLSession.shared) {
+    init(photo: PhotoRepresentation, session: URLSession = URLSession.shared) {
         self.photo = photo
         self.session = session
         super.init()
@@ -19,7 +19,7 @@ class FetchPhotoOperation: ConcurrentOperation {
     
     override func start() {
         state = .isExecuting
-        guard let photoString = photo.thumbnailURL else {return}
+        let photoString = photo.thumbnailUrl
         let url = URL(string: photoString)!
         
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -44,8 +44,7 @@ class FetchPhotoOperation: ConcurrentOperation {
     }
     
     // MARK: Properties
-    
-    let photo: Photo
+    let photo: PhotoRepresentation
     private let session: URLSession
     private(set) var image: UIImage?
     private var dataTask: URLSessionDataTask?

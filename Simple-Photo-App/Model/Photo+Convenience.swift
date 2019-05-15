@@ -21,10 +21,10 @@ extension Photo {
     
     convenience init?(photoRepresenation: PhotoRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
-        guard let title = photoRepresenation.title,
-            let photoURL = photoRepresenation.url,
-            let thumbnailURL = photoRepresenation.thumbnailUrl else {return nil}
-            let id = photoRepresenation.id
+        let title = photoRepresenation.title
+        let photoURL = photoRepresenation.url
+        let thumbnailURL = photoRepresenation.thumbnailUrl
+        let id = photoRepresenation.id
         
         self.init(title:title, photoURL:photoURL, thumbnailURL: thumbnailURL, id:id, context:context)
     }

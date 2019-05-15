@@ -24,26 +24,16 @@ extension PhotoController {
                 completion(nil, error)
                 return
             }
-            
-            DispatchQueue.main.sync {
                 do {
                     let jsonDecoder = JSONDecoder()
                     let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data)
-                    for photoR in photosRep {
-                        let photo = Photo(photoRepresenation: photoR)
-                        if let photo = photo {
-                            self.photos.append(photo)
-                        }
-                    }
-                    print(self.photos[0])
+                    self.photos = photosRep
                     completion(self.photos, nil)
                 } catch {
                     NSLog("Error decoding JSON data: \(error)")
                     completion(nil, error)
                     return
                 }
-            }
-            
         
         }.resume()
         

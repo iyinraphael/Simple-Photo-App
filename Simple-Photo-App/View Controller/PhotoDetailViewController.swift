@@ -11,7 +11,8 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
     
     var photoController: PhotoController?
-    var photo: Photo? {
+    var color: UIColor?
+    var photo: PhotoRepresentation? {
         didSet {
             createCustomImageView()
         }
@@ -19,17 +20,15 @@ class PhotoDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBarColor()
+        setUpAppearance()
         createCustomImageView()
         createLabel()
     }
     
-    
+    //MARK: - CoreData for further Implementation to save Photos to album
     @IBAction func SavePhoto(_ sender: Any) {
-        guard let photoUrl = photo?.photoURL, let title = photo?.title,
-            let thumbnailUrl = photo?.thumbnailURL, let photoId = photo?.id else {return}
-        
-        photoController?.savePhoto(title: title, photoUrl: photoUrl, thumbnailUrl: thumbnailUrl, id: photoId, context: moc)
-       self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -43,7 +42,7 @@ class PhotoDetailViewController: UIViewController {
         imageView.layer.cornerRadius = radius
         imageView.layer.borderWidth = 1.0
         imageView.layer.borderColor = UIColor.black.cgColor
-        guard let imageData = stringToData(str: photo?.photoURL) else {return}
+        guard let imageData = stringToData(str: photo?.url) else {return}
         imageView.image = UIImage(data: imageData)
         
         view.addSubview(imageView)
@@ -54,11 +53,19 @@ class PhotoDetailViewController: UIViewController {
         guard let title = photo?.title else {return}
         titleLabel.text = title
         titleLabel.font = .boldSystemFont(ofSize: 20)
+        
         view.addSubview(titleLabel)
     }
 
+    private func setBarColor() {
     
-    
+        var splitString = photo?.url.split(separator: "/")
+        guard let hex = splitString?.removeLast() else {return}
+        let hexColor = "#\(hex)"
+        let color = UIColor(hex: hexColor)
+       navigationController?.navigationBar.barTintColor =  color
+        
+    }
     
     private func stringToData(str: String?) -> Data? {
         var newData:Data?
