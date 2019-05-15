@@ -11,7 +11,6 @@ import Foundation
 class ConcurrentOperation: Operation {
     
     // MARK: Types
-    
     enum State: String {
         case isReady, isExecuting, isFinished
     }

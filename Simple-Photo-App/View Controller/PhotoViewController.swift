@@ -21,6 +21,9 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpAppearance()
+        navigationController?.navigationBar.barTintColor = .gray
+        collectionVIew.backgroundColor = .gray
+    
         let photCell = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionVIew.register(photCell, forCellWithReuseIdentifier: reuseIdentifier)
         photoController.fetchPhoto { (_, _) in

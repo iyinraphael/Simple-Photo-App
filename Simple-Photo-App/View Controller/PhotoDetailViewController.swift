@@ -12,6 +12,10 @@ class PhotoDetailViewController: UIViewController {
     
     var photoController: PhotoController?
     var color: UIColor?
+    
+    @IBOutlet weak var doneBarButtton: UIBarButtonItem!
+    
+    @IBOutlet weak var navBar: UINavigationBar!
     var photo: PhotoRepresentation? {
         didSet {
             createCustomImageView()
@@ -62,8 +66,10 @@ class PhotoDetailViewController: UIViewController {
         var splitString = photo?.url.split(separator: "/")
         guard let hex = splitString?.removeLast() else {return}
         let hexColor = "#\(hex)"
-        let color = UIColor(hex: hexColor)
-       navigationController?.navigationBar.barTintColor =  color
+        let color = UIColor(hexString: hexColor)
+        
+        doneBarButtton.tintColor = .black
+        navBar.backgroundColor = color
         
     }
     

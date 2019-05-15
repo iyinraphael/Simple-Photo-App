@@ -56,6 +56,7 @@
         <!--Title-->
         <scene sceneID="JON-3N-G0l">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ryx-Es-iCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="photoDetailViewController" id="ndV-92-6N5" customClass="PhotoDetailViewController" customModule="Simple_Photo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0II-wr-wza">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -79,15 +80,17 @@
                         <viewLayoutGuide key="safeArea" id="ByS-NV-tDw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="8xT-8V-SSs"/>
+                    <connections>
+                        <outlet property="doneBarButtton" destination="Fbi-IK-qHZ" id="wL3-gG-Erg"/>
+                        <outlet property="navBar" destination="kue-7i-eff" id="sIx-86-jzk"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ryx-Es-iCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1577" y="-42"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zrl-4S-fyC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tj3-2L-JFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jd8-ih-5Nl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EVA-oG-8z0">
@@ -99,6 +102,7 @@
                         <segue destination="16t-5v-QZ9" kind="relationship" relationship="rootViewController" id="EzA-Vy-zNe"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tj3-2L-JFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13" y="-29"/>
         </scene>
