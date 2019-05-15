@@ -15,8 +15,6 @@ extension PhotoController {
 
     func fetchPhoto(completion: @escaping completionHandler = {_, _ in }) {
         
-        var newPhotos = Array<Photo>()
-        
         URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
             if let error = error {
                 NSLog("Could not fetch data from server \(error)")
@@ -27,21 +25,27 @@ extension PhotoController {
                 return
             }
             
-            do {
-                let jsonDecoder = JSONDecoder()
-                let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data)
-                for photoR in photosRep {
-                    let photo = Photo(photoRepresenation: photoR)
-                    if let photo = photo {
-                         newPhotos.append(photo)
+            DispatchQueue.main.async {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let photosRep = try jsonDecoder.decode([PhotoRepresentation].self, from: data)
+                    for photoR in photosRep {
+                        let photo = Photo(photoRepresenation: photoR)
+                        if let photo = photo {
+                            self.photos.append(photo)
+                        }
+                        
                     }
+                    print(self.photos[0])
+                    completion(self.photos, nil)
+                } catch {
+                    NSLog("Error decoding JSON data: \(error)")
+                    completion(nil, error)
+                    return
                 }
-                completion(newPhotos, nil)
-            } catch {
-                NSLog("Error decoding JSON data: \(error)")
-                completion(nil, error)
-                return
             }
+            
+        
         }.resume()
         
     }
