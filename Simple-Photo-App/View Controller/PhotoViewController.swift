@@ -18,6 +18,15 @@ class PhotoViewController: UIViewController {
     private var operations = [Int64 : Operation]()
     private let photoFetchQueue = OperationQueue()
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        photoController.fetchPhoto { (_, _) in
+            DispatchQueue.main.async {
+                self.collectionVIew.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpAppearance()
@@ -26,11 +35,6 @@ class PhotoViewController: UIViewController {
     
         let photCell = UINib(nibName: reuseIdentifier, bundle: nil)
         collectionVIew.register(photCell, forCellWithReuseIdentifier: reuseIdentifier)
-        photoController.fetchPhoto { (_, _) in
-            DispatchQueue.main.sync {
-                self.collectionVIew.reloadData()
-            }
-        }
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
