@@ -53,10 +53,11 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func createLabel() {
-        let titleLabel = UILabel(frame: CGRect(x: 150, y: 700, width: 100, height: 50))
+        let titleLabel = UILabel(frame: CGRect(x: 60, y: 600, width: 300, height: 50))
         guard let title = photo?.title else {return}
         titleLabel.text = title
-        titleLabel.font = .boldSystemFont(ofSize: 20)
+        titleLabel.font = .boldSystemFont(ofSize: 15)
+        
         
         view.addSubview(titleLabel)
     }
