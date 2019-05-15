@@ -19,16 +19,16 @@ class PhotoDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.translatesAutoresizingMaskIntoConstraints = false
         createCustomImageView()
         createLabel()
     }
     
     //Creating custom imageView contrainst
     private func createCustomImageView() {
-        let imageView = UIImageView(frame: CGRect(x: 100, y: 100, width: 150, height: 150))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let imageView = UIImageView(frame: CGRect(x: 50, y: 300, width: 300, height: 300))
         imageView.clipsToBounds = true
-        let radius = imageView.frame.width / 0.5
+        let radius = imageView.frame.width / 2.0
         imageView.layer.cornerRadius = radius
         imageView.layer.borderWidth = 1.0
         imageView.layer.borderColor = UIColor.black.cgColor
@@ -39,7 +39,7 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func createLabel() {
-        let titleLabel = UILabel(frame: CGRect(x: 170, y: 170, width: 100, height: 20))
+        let titleLabel = UILabel(frame: CGRect(x: 700, y: 700, width: 100, height: 20))
         view.addSubview(titleLabel)
     }
 
