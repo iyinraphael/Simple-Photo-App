@@ -86,7 +86,12 @@ class PhotoViewController: UIViewController {
 
 }
 
-    // MARK: - UICollection Delagate and Data Source
+
+
+
+
+
+// MARK: - UICollection Delagate and Data Source
 extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoController.photos.count
@@ -96,8 +101,35 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ThumbnailPhotoCollectionViewCell else {return UICollectionViewCell()}
         
         loadImage(forCell: cell, forItemAt: indexPath)
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if photoController.photos.count > 0 {
+            let photo = photoController.photos[indexPath.item]
+            operations[photo.id]?.cancel()
+        } else {
+            for (_, operation) in operations {
+                operation.cancel()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        var totalUsableWidth = collectionView.frame.width
+        let inset = self.collectionView(collectionView, layout: collectionViewLayout, insetForSectionAt: indexPath.section)
+        totalUsableWidth -= inset.left + inset.right
+        
+        let minWidth: CGFloat = 150.0
+        let numberOfItemsInOneRow = Int(totalUsableWidth / minWidth)
+        totalUsableWidth -= CGFloat(numberOfItemsInOneRow - 1) * flowLayout.minimumInteritemSpacing
+        let width = totalUsableWidth / CGFloat(numberOfItemsInOneRow)
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10.0, bottom: 0, right: 10.0)
     }
 }
 
