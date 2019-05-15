@@ -46,8 +46,4 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 
 // MARk: - NSFetchControllerDelegate
-extension PhotoController: NSFetchedResultsControllerDelegate {
-    
-    
-    
-}
+
